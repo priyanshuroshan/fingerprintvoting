@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaVote | Future of Democracy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="s1" class="screen active">
+            <h1>NOVAVOTE</h1>
+            <p>Enter Voter credentials to begin</p>
+            <input type="text" id="vid" class="input-box" placeholder="Voter Identification ID">
+            <button class="btn" onclick="next(2)">Authenticate</button>
+        </div>
+
+        <div id="s2" class="screen">
+            <h1>BALLOT</h1>
+            <p>Securely select your representative</p>
+            <div class="candidate-list">
+                <div class="candidate-card" onclick="select(this)">
+                    <div class="avatar">BJP</div>
+                    <div>
+                        <div style="font-weight: 600;">Shree Narendra Modi</div>
+                        <div style="font-size: 12px; color: #8b949e;">Bharatiye Janta Party</div>
+                    </div>
+                </div>
+                <div class="candidate-card" onclick="select(this)">
+                    <div class="avatar">INC</div>
+                    <div>
+                        <div style="font-weight: 600;">Rahul Gandhi</div>
+                        <div style="font-size: 12px; color: #8b949e;">Indian National Congress</div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" id="next2" disabled onclick="next(3)">Proceed to Scan</button>
+        </div>
+
+        <div id="s3" class="screen" style="text-align: center;">
+            <h1>VERIFY</h1>
+            <p>Tap the sensor to authorize vote</p>
+            <div class="scanner-wrap" id="wrap">
+                <div class="pulse"></div>
+                <div class="scan-line"></div>
+                <div class="fingerprint-btn" onclick="startScan()">
+                    <svg width="60" height="60" viewBox="0 0 24 24"><path d="M12,2C11.1,2 10.2,2.1 9.3,2.3C8.5,2.5 7.7,2.8 7,3.3C6.3,3.8 5.7,4.4 5.2,5.1C4.8,5.8 4.5,6.6 4.3,7.4C4.1,8.3 4,9.1 4,10H6C6,9.3 6.1,8.7 6.2,8C6.4,7.4 6.6,6.8 6.9,6.3C7.2,5.8 7.6,5.4 8.1,5.1C8.6,4.7 9.1,4.5 9.7,4.3C10.4,4.1 11.2,4 12,4C12.8,4 13.6,4.1 14.3,4.3C14.9,4.5 15.4,4.7 15.9,5.1C16.4,5.4 16.8,5.8 17.1,6.3C17.4,6.8 17.6,7.4 17.8,8C17.9,8.7 18,9.3 18,10H20C20,9.1 19.9,8.3 19.7,7.4C19.5,6.6 19.2,5.8 18.8,5.1C18.3,4.4 17.7,3.8 17,3.3C16.3,2.8 15.5,2.5 14.7,2.3C13.8,2.1 12.9,2 12,2M12,6C10.9,6 9.8,6.2 8.9,6.7C7.9,7.1 7.2,7.8 6.7,8.6C6.2,9.5 6,10.4 6,11.5V13H8V11.5C8,10.8 8.1,10.2 8.4,9.7C8.7,9.1 9.1,8.7 9.7,8.4C10.2,8.1 10.8,8 11.5,8H12.5C13.2,8 13.8,8.1 14.3,8.4C14.9,8.7 15.3,9.1 15.6,9.7C15.9,10.2 16,10.8 16,11.5V13H18V11.5C18,10.4 17.8,9.5 17.3,8.6C16.8,7.8 16.1,7.1 15.1,6.7C14.2,6.2 13.1,6 12,6M12,10C11.4,10 10.9,10.1 10.4,10.4C10,10.7 9.7,11.1 9.4,11.5C9.2,12 9,12.5 9,13.1V22H11V13.1C11,12.8 11.1,12.5 11.2,12.3C11.4,12.1 11.7,12 12,12C12.3,12 12.6,12.1 12.8,12.3C12.9,12.5 13,12.8 13,13.1V22H15V13.1C15,12.5 14.8,12 14.6,11.5C14.3,11.1 14,10.7 13.6,10.4C13.1,10.1 12.6,10 12,10Z"/></svg>
+                </div>
+            </div>
+            <div id="load" class="loading-text">Ready for Bio-Entry</div>
+        </div>
+
+        <div id="s4" class="screen" style="text-align: center;">
+            <div class="success-checkmark">✓</div>
+            <h1 style="color: white; letter-spacing: 0;">VOTE CONFIRMED</h1>
+            <p>Your encrypted ballot has been safely added to the blockchain.</p>
+            <button class="btn" style="background: #30363d; color: white; margin-top: 20px;" onclick="location.reload()">Finish</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
